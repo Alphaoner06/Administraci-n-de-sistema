@@ -272,7 +272,6 @@ public class ControladorPrincipal {
      
     private Paciente convertirPaciente(String espacio){
           if (espacio == null || espacio.trim().equals("") || !espacio.contains(",")) {
-        // Línea vacía o inválida, devuelvo un paciente nulo
         return null;
     }
         String nombre = "", id ="", edadTxt = "", motivo = "", urgencia = "", hora = "";
@@ -296,7 +295,7 @@ public class ControladorPrincipal {
         }
         hora = dato;
         
-        // Verificación mínima para que no haya datos vacíos importantes
+        // Verificación  para que no haya datos vacíos 
     if (nombre.equals("") || id.equals("") || edadTxt.equals("")) {
         return null;
     }
