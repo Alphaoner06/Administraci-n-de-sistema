@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package administración.sistema;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +24,33 @@ public class ArbolHistorial {
             nodo.derecha = insertarRec(nodo.derecha, paciente);
         return nodo;
     }
+    
+    public void mostrarHistorial() {
+    if (raiz == null) {
+        JOptionPane.showMessageDialog(null, "No hay pacientes en el historial.");
+        return;
+    }
+
+    StringBuilder historial = new StringBuilder();
+    construirTextoHistorial(raiz, historial);
+
+        JOptionPane.showMessageDialog(null, historial.toString(), "Historial Clínico", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void construirTextoHistorial(NodoHistorial nodo, StringBuilder historial) {
+        if (nodo != null) {
+            construirTextoHistorial(nodo.izquierda, historial);
+            historial.append("ID: ").append(nodo.paciente.id).append("\n");
+            historial.append("Nombre: ").append(nodo.paciente.nombre).append("\n");
+            historial.append("Edad: ").append(nodo.paciente.edad).append("\n");
+            historial.append("Motivo: ").append(nodo.paciente.motivo).append("\n");
+            historial.append("Urgencia: ").append(nodo.paciente.urgencia).append("\n");
+            historial.append("Hora de llegada: ").append(nodo.paciente.horaLlegada).append("\n");
+            historial.append("----------------------\n");
+            construirTextoHistorial(nodo.derecha, historial);
+        }
+}
+
 
     public void inOrden() {
         inOrdenRec(raiz);

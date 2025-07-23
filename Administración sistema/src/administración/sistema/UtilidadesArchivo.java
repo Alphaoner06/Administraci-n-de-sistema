@@ -11,11 +11,10 @@ package administración.sistema;
 import java.io.*;
 
 public class UtilidadesArchivo {
-    public static void guardarTexto(String nombreArchivo, String contenido) {
-        try (FileWriter fw = new FileWriter(nombreArchivo, true);
+    public static void guardarTexto(String nombreArchivo, String contenido, boolean agregarFinal) {
+        try (FileWriter fw = new FileWriter(nombreArchivo, agregarFinal);
              BufferedWriter bw = new BufferedWriter(fw)) {
             bw.write(contenido);
-            bw.newLine();
         } catch (IOException e) {
             System.out.println("Error al guardar archivo: " + e.getMessage());
         }

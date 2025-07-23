@@ -9,12 +9,12 @@ package administración.sistema;
  * @author Alanm
  */
 public class Paciente {
-    String nombre;
-    String id;
-    int edad;
-    String motivo;
-    String urgencia; // Alta, Media, Baja
-    String horaLlegada;
+    public String nombre;
+    public String id;
+    public int edad;
+    public String motivo;
+    public String urgencia; // Alta, Media, Baja
+    public String horaLlegada;
 
     public Paciente(String nombre, String id, int edad, String motivo, String urgencia, String horaLlegada) {
         this.nombre = nombre;

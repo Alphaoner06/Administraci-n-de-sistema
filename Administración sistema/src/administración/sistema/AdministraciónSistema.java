@@ -15,6 +15,7 @@ public class AdministraciónSistema {
      */
     public static void main(String[] args) {
      ControladorPrincipal app = new ControladorPrincipal();
+        app.cargarDatos();
         app.iniciar();
     }
 }
